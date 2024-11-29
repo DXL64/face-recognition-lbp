@@ -15,8 +15,8 @@ session = ort.InferenceSession(model_path)
 
 # Define the paths for your dataset and output folders
 dataset_path = 'vietnamese-celebrity-faces'
-male_folder = 'gender/male'
-female_folder = 'gender/female'
+male_folder = 'gender_small/male'
+female_folder = 'gender_small/female'
 
 # Ensure output folders exist
 os.makedirs(male_folder, exist_ok=True)
@@ -39,7 +39,7 @@ def classify_gender(img_path):
     gender = np.argmax(outputs[1])
     
     # Assuming the model returns 0 for male, 1 for female
-    return 'male' if gender == 0 else 'female'
+    return 'male' if gender == 1 else 'female'
 
 # Loop through each folder (label)
 for folder in os.listdir(dataset_path):
@@ -50,7 +50,7 @@ for folder in os.listdir(dataset_path):
         if len(images) > 0:
             print(folder_path)
             # Randomly select 3 images from the folder
-            selected_images = random.sample(images, min(len(images), 3))
+            selected_images = random.sample(images, min(len(images), 1))
             
             for img_path in selected_images:
                 # Classify gender of the image

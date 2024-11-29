@@ -1,8 +1,9 @@
 scipy==1.4.1
 scikit-learn
-opencv-python
+opencv-contrib-python
 imutils
 numpy
 matplotlib==3.2.2
 scikit-image
 fastparquet
+tqdm
