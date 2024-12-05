@@ -43,9 +43,7 @@ def load_face_dataset(inputPath, minSamples = 15):
     
     # resize it and convert it into grayscale format
     faceROI = image
-    faceROI = cv2.resize(faceROI , (47 , 62))
     faceROI = cv2.cvtColor(faceROI , cv2.COLOR_BGR2GRAY)
-    faceROI = cv2.equalizeHist(faceROI)
 
     # update the faces and labels list
 
